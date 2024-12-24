@@ -26,8 +26,7 @@ def clear_inputs():
             st.session_state[f"plural_{person}"] = ''
 
 
-# , on_change=clear_inputs)
-menuItem = st.sidebar.selectbox(TITLE, (SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR))
+menuItem = st.sidebar.selectbox(TITLE, (SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR), on_change=clear_inputs)
 
 dat = VerbData(menuItem)
 verbs = dat.verbs
