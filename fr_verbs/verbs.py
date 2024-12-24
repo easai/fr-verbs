@@ -1,10 +1,11 @@
 import streamlit as st
 import pandas as pd
-from fr_data import FrData
-from fr_test import FrTest
-from fr_table import FrTable
-from fr_quiz import FrQuiz
-from fr_desc import FrDesc
+from data import VerbData
+from test import VerbTest
+from table import VerbTable
+from quiz import VerbQuiz
+from desc import VerbDesc
+from const import TITLE, SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR
 
 
 def clear_inputs():
@@ -17,9 +18,10 @@ def clear_inputs():
             st.session_state[f"plural_{person}"] = ''
 
 
-menuItem = st.sidebar.selectbox("French Verb Quizzes", ("Subjunctive être"))#, on_change=clear_inputs)
+# , on_change=clear_inputs)
+menuItem = st.sidebar.selectbox(TITLE, (SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR))
 
-dat = FrData(menuItem)
+dat = VerbData(menuItem)
 verbs = dat.verbs
 
 # Streamlit app title
@@ -28,15 +30,15 @@ st.write("Challenge yourself with our French verbs quizzes and tests, and see ho
 st.subheader(menuItem)
 
 # Side menu
-FrDesc(menuItem)
+VerbDesc(menuItem)
 
 # Accordion for the pronoun table
-FrTable(verbs)
+VerbTable(verbs)
 
 # Pronouns table quiz
-FrQuiz(verbs)
+VerbQuiz(verbs)
 
 # Fill-in-the-box test
 test = dat.test()
 if test != "":
-    swquiz = FrTest(test)
+    swquiz = VerbTest(test)

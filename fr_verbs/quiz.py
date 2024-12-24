@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 
-class FrQuiz:
+class VerbQuiz:
     def __init__(self, verbs):
         self.verbs = verbs
         audio_html = f"""

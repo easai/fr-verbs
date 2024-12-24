@@ -1,7 +1,7 @@
 import streamlit as st
 
 
-class FrTest:
+class VerbTest:
     def __init__(self, verbs):
 
         # Streamlit app layout

@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 
-class FrTable:
+class VerbTable:
     def __init__(self, verbs):
         # Accordion for the pronoun table
         with st.expander("Show Verb Inflection Table"):
