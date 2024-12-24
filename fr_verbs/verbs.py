@@ -7,6 +7,14 @@ from quiz import VerbQuiz
 from desc import VerbDesc
 from const import TITLE, SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR
 
+import streamlit as st
+
+st.set_page_config(
+    page_title=TITLE,
+    page_icon="📚",
+    layout="centered",
+    initial_sidebar_state="auto",
+)
 
 def clear_inputs():
     for person, _ in verbs.items():
@@ -25,7 +33,7 @@ dat = VerbData(menuItem)
 verbs = dat.verbs
 
 # Streamlit app title
-st.title("French Verbs")
+st.title(TITLE)
 st.write("Challenge yourself with our French verbs quizzes and tests, and see how much you know! The app can test various aspects of French verbs.")
 st.subheader(menuItem)
 
