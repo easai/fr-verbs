@@ -1,4 +1,4 @@
-from const import SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR
+from const import SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR, CONDITIONAL_ETRE
 
 
 class VerbData:
@@ -96,6 +96,52 @@ class VerbData:
                 }
             }
 
+        if selection == CONDITIONAL_ETRE:
+            self.verbs = {
+                "1st Person": {
+                    "Singular": {
+                        "text": "I (je serais)",
+                        "question": "je",
+                        "answer": "serais",
+                        "audio": ""
+                    },
+                    "Plural": {
+                        "text": "We (nous serions)",
+                        "question": "nous",
+                        "answer": "serions",
+                        "audio": ""
+                    }
+                },
+                "2nd Person": {
+                    "Singular": {
+                        "text": "You (tu serais)",
+                        "question": "tu",
+                        "answer": "serais",
+                        "audio": ""
+                    },
+                    "Plural": {
+                        "text": "You (vous seriez)",
+                        "question": "vous",
+                        "answer": "seriez",
+                        "audio": ""
+                    }
+                },
+                "3rd Person": {
+                    "Singular": {
+                        "text": "He/She (il/elle serait)",
+                        "question": "il/elle",
+                        "answer": "serait",
+                        "audio": ""
+                    },
+                    "Plural": {
+                        "text": "They (ils/elles seraient)",
+                        "question": "ils/elles",
+                        "answer": "seraient",
+                        "audio": ""
+                    }
+                }
+            }
+
 
     def test(self):
         lst = {}
@@ -116,6 +162,15 @@ class VerbData:
                 "1p": ("ayons", "que nous ___ de la patience.", "We have patience."),
                 "2p": ("ayez", "que vous ___ de la force.", "You all have strength."),
                 "3p": ("aient", "qu'ils/qu'elles ___ des idées.", "They have ideas.")
+            }
+        elif self.selection == CONDITIONAL_ETRE:
+            lst = {
+                "1s": ("serais", "je ___ heureux.", "I would be happy."),
+                "2s": ("serais", "tu ___ en bonne santé.", "You would be healthy."),
+                "3s": ("serait", "il/elle ___ à l'heure.", "He/She would be on time."),
+                "1p": ("serions", "nous ___ amis.", "We would be friends."),
+                "2p": ("seriez", "vous ___ prêts.", "You all would be ready."),
+                "3p": ("seraient", "ils/elles ___ contents.", "They would be happy.")
             }
 
         return lst
