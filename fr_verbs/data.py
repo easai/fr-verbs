@@ -1,4 +1,4 @@
-from const import SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR, CONDITIONAL_ETRE
+from const import SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR, CONDITIONAL_ETRE, CONDITIONAL_AVOIR
 
 
 class VerbData:
@@ -141,6 +141,53 @@ class VerbData:
                     }
                 }
             }
+        
+        if selection == CONDITIONAL_AVOIR:
+            self.verbs = {
+                "1st Person": {
+                    "Singular": {
+                        "text": "I (j'aurais)",
+                        "question": "je",
+                        "answer": "aurais",
+                        "audio": ""
+                    },
+                    "Plural": {
+                        "text": "We (nous aurions)",
+                        "question": "nous",
+                        "answer": "aurions",
+                        "audio": ""
+                    }
+                },
+                "2nd Person": {
+                    "Singular": {
+                        "text": "You (tu aurais)",
+                        "question": "tu",
+                        "answer": "aurais",
+                        "audio": ""
+                    },
+                    "Plural": {
+                        "text": "You (vous auriez)",
+                        "question": "vous",
+                        "answer": "auriez",
+                        "audio": ""
+                    }
+                },
+                "3rd Person": {
+                    "Singular": {
+                        "text": "He/She (il/elle aurait)",
+                        "question": "il/elle",
+                        "answer": "aurait",
+                        "audio": ""
+                    },
+                    "Plural": {
+                        "text": "They (ils/elles auraient)",
+                        "question": "ils/elles",
+                        "answer": "auraient",
+                        "audio": ""
+                    }
+                }
+            }
+
 
 
     def test(self):
@@ -172,5 +219,15 @@ class VerbData:
                 "2p": ("seriez", "vous ___ prêts.", "You all would be ready."),
                 "3p": ("seraient", "ils/elles ___ contents.", "They would be happy.")
             }
+        if self.selection == CONDITIONAL_AVOIR:
+            lst = {
+                "1s": ("aurais", "je ___ un livre.", "I would have a book."),
+                "2s": ("aurais", "tu ___ une voiture.", "You would have a car."),
+                "3s": ("aurait", "il/elle ___ un chien.", "He/She would have a dog."),
+                "1p": ("aurions", "nous ___ des amis.", "We would have friends."),
+                "2p": ("auriez", "vous ___ des devoirs.", "You all would have homework."),
+                "3p": ("auraient", "ils/elles ___ des idées.", "They would have ideas.")
+            }
+
 
         return lst
