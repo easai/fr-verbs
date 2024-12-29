@@ -1,4 +1,4 @@
-from const import SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR, CONDITIONAL_ETRE, CONDITIONAL_AVOIR
+from const import SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR, CONDITIONAL_ETRE, CONDITIONAL_AVOIR, PRETERIT_ETRE
 
 
 class VerbData:
@@ -188,6 +188,52 @@ class VerbData:
                 }
             }
 
+        if selection == PRETERIT_ETRE:
+            self.verbs = {
+                "1st Person": {
+                    "Singular": {
+                        "text": "I (je fus)",
+                        "question": "je",
+                        "answer": "fus",
+                        "audio": ""
+                    },
+                    "Plural": {
+                        "text": "We (nous fûmes)",
+                        "question": "nous",
+                        "answer": "fûmes",
+                        "audio": ""
+                    }
+                },
+                "2nd Person": {
+                    "Singular": {
+                        "text": "You (tu fus)",
+                        "question": "tu",
+                        "answer": "fus",
+                        "audio": ""
+                    },
+                    "Plural": {
+                        "text": "You (vous fûtes)",
+                        "question": "vous",
+                        "answer": "fûtes",
+                        "audio": ""
+                    }
+                },
+                "3rd Person": {
+                    "Singular": {
+                        "text": "He/She (il/elle fut)",
+                        "question": "il/elle",
+                        "answer": "fut",
+                        "audio": ""
+                    },
+                    "Plural": {
+                        "text": "They (ils/elles furent)",
+                        "question": "ils/elles",
+                        "answer": "furent",
+                        "audio": ""
+                    }
+                }
+            }
+
 
 
     def test(self):
@@ -227,6 +273,15 @@ class VerbData:
                 "1p": ("aurions", "nous ___ des amis.", "We would have friends."),
                 "2p": ("auriez", "vous ___ des devoirs.", "You all would have homework."),
                 "3p": ("auraient", "ils/elles ___ des idées.", "They would have ideas.")
+            }
+        if self.selection == PRETERIT_ETRE:
+            lst = {
+                "1s": ("fus", "je ___ à Paris.", "I was in Paris."),
+                "2s": ("fus", "tu ___ en vacances.", "You were on vacation."),
+                "3s": ("fut", "il/elle ___ étudiant.", "He/She was a student."),
+                "1p": ("fûmes", "nous ___ au concert.", "We were at the concert."),
+                "2p": ("fûtes", "vous ___ en retard.", "You all were late."),
+                "3p": ("furent", "ils/elles ___ heureux.", "They were happy.")
             }
 
 

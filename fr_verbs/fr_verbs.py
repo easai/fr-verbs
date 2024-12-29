@@ -5,7 +5,7 @@ from test import VerbTest
 from table import VerbTable
 from quiz import VerbQuiz
 from desc import VerbDesc
-from const import TITLE, SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR, CONDITIONAL_ETRE, CONDITIONAL_AVOIR
+from const import TITLE, SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR, CONDITIONAL_ETRE, CONDITIONAL_AVOIR, PRETERIT_ETRE
 
 import streamlit as st
 
@@ -26,7 +26,7 @@ def clear_inputs():
             st.session_state[f"plural_{person}"] = ''
 
 
-menuItem = st.sidebar.selectbox(TITLE, (SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR, CONDITIONAL_ETRE, CONDITIONAL_AVOIR), on_change=clear_inputs)
+menuItem = st.sidebar.selectbox(TITLE, (SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR, CONDITIONAL_ETRE, CONDITIONAL_AVOIR, PRETERIT_ETRE), on_change=clear_inputs)
 
 dat = VerbData(menuItem)
 verbs = dat.verbs
@@ -43,7 +43,7 @@ VerbDesc(menuItem)
 VerbTable(verbs)
 
 # Pronouns table quiz
-VerbQuiz(verbs)
+VerbQuiz(verbs, menuItem)
 
 # Fill-in-the-box test
 test = dat.test()
