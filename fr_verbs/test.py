@@ -11,7 +11,7 @@ class VerbTest:
         for pronoun, (answer, sentence, translation) in verbs.items():
             st.write(translation)  # Show English translation
 
-            user_answer = st.text_input(sentence, key=pronoun)
+            user_answer = st.text_input(sentence, key=pronoun, autocomplete="off")
             if user_answer:
                 if user_answer.strip().lower() == answer.lower():
                     st.success(f"Correct! The answer is '{answer}'.")

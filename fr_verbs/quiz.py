@@ -20,7 +20,7 @@ class VerbQuiz:
 
             with col1:
                 singular_answer = st.text_input(
-                    f"{person} Singular", key=f"singular_{person}")
+                    f"{person} Singular", key=f"singular_{person}", autocomplete="off")
                 if singular_answer:
                     correct_singular = forms["Singular"]["answer"]
                     if singular_answer.strip().lower() == correct_singular.lower():
@@ -32,7 +32,7 @@ class VerbQuiz:
 
             with col2:
                 plural_answer = st.text_input(
-                    f"{person} Plural", key=f"plural_{person}")
+                    f"{person} Plural", key=f"plural_{person}", autocomplete="off")
                 if plural_answer:
                     correct_plural = forms["Plural"]["answer"]
                     if plural_answer.strip().lower() == correct_plural.lower():
