@@ -18,12 +18,8 @@ st.set_page_config(
 
 def clear_inputs():
     for person, _ in verbs.items():
-        col1, col2 = st.columns(2)
-
-        with col1:
-            st.session_state[f"singular_{person}"] = ""
-        with col2:
-            st.session_state[f"plural_{person}"] = ''
+        st.session_state[f"singular_{person}_input"] = ""
+        st.session_state[f"plural_{person}_input"] = ""
 
 
 menuItem = st.sidebar.selectbox(TITLE, (SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR, CONDITIONAL_ETRE, CONDITIONAL_AVOIR, PRETERIT_ETRE), on_change=clear_inputs)
@@ -38,6 +34,8 @@ st.subheader(menuItem)
 
 # Side menu
 VerbDesc(menuItem)
+
+st.write("French uses the following characters: é, à, è, ù, â, ê, î, ô, û, ë, ï, ü, ÿ, ç.")
 
 # Accordion for the pronoun table
 VerbTable(verbs)
