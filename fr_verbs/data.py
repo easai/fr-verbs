@@ -1,4 +1,4 @@
-from const import SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR, CONDITIONAL_ETRE, CONDITIONAL_AVOIR, PRETERIT_ETRE
+from const import SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR, CONDITIONAL_ETRE, CONDITIONAL_AVOIR, PRETERIT_ETRE, PRETERIT_AVOIR
 
 
 class VerbData:
@@ -233,6 +233,51 @@ class VerbData:
                     }
                 }
             }
+        if selection == PRETERIT_AVOIR:
+            self.verbs = {
+                "1st Person": {
+                    "Singular": {
+                        "text": "I (j'eus)",
+                        "question": "je",
+                        "answer": "eus",
+                        "audio": ""
+                    },
+                    "Plural": {
+                        "text": "We (nous eûmes)",
+                        "question": "nous",
+                        "answer": "eûmes",
+                        "audio": ""
+                    }
+                },
+                "2nd Person": {
+                    "Singular": {
+                        "text": "You (tu eus)",
+                        "question": "tu",
+                        "answer": "eus",
+                        "audio": ""
+                    },
+                    "Plural": {
+                        "text": "You (vous eûtes)",
+                        "question": "vous",
+                        "answer": "eûtes",
+                        "audio": ""
+                    }
+                },
+                "3rd Person": {
+                    "Singular": {
+                        "text": "He/She (il/elle eut)",
+                        "question": "il/elle",
+                        "answer": "eut",
+                        "audio": ""
+                    },
+                    "Plural": {
+                        "text": "They (ils/elles eurent)",
+                        "question": "ils/elles",
+                        "answer": "eurent",
+                        "audio": ""
+                    }
+                }
+            }
 
 
 
@@ -282,6 +327,15 @@ class VerbData:
                 "1p": ("fûmes", "nous ___ au concert.", "We were at the concert."),
                 "2p": ("fûtes", "vous ___ en retard.", "You all were late."),
                 "3p": ("furent", "ils/elles ___ heureux.", "They were happy.")
+            }
+        if self.selection == PRETERIT_AVOIR:
+            lst = {
+                "1s": ("eus", "j'___ un livre.", "I had a book."),
+                "2s": ("eus", "tu ___ une idée.", "You had an idea."),
+                "3s": ("eut", "il/elle ___ un chien.", "He/She had a dog."),
+                "1p": ("eûmes", "nous ___ une réunion.", "We had a meeting."),
+                "2p": ("eûtes", "vous ___ une chance.", "You all had a chance."),
+                "3p": ("eurent", "ils/elles ___ des amis.", "They had friends.")
             }
 
 
