@@ -278,6 +278,51 @@ class VerbData:
                     }
                 }
             }
+        if selection == IMPERFECT_ETRE:
+            self.verbs = {
+                "1st Person": {
+                    "Singular": {
+                        "text": "I (j'étais)",
+                        "question": "je",
+                        "answer": "étais",
+                        "audio": ""
+                    },
+                    "Plural": {
+                        "text": "We (nous étions)",
+                        "question": "nous",
+                        "answer": "étions",
+                        "audio": ""
+                    }
+                },
+                "2nd Person": {
+                    "Singular": {
+                        "text": "You (tu étais)",
+                        "question": "tu",
+                        "answer": "étais",
+                        "audio": ""
+                    },
+                    "Plural": {
+                        "text": "You (vous étiez)",
+                        "question": "vous",
+                        "answer": "étiez",
+                        "audio": ""
+                    }
+                },
+                "3rd Person": {
+                    "Singular": {
+                        "text": "He/She (il/elle était)",
+                        "question": "il/elle",
+                        "answer": "était",
+                        "audio": ""
+                    },
+                    "Plural": {
+                        "text": "They (ils/elles étaient)",
+                        "question": "ils/elles",
+                        "answer": "étaient",
+                        "audio": ""
+                    }
+                }
+            }
 
 
 
@@ -336,6 +381,15 @@ class VerbData:
                 "1p": ("eûmes", "nous ___ une réunion.", "We had a meeting."),
                 "2p": ("eûtes", "vous ___ une chance.", "You all had a chance."),
                 "3p": ("eurent", "ils/elles ___ des amis.", "They had friends.")
+            }
+        if self.selection == IMPERFECT_ETRE:
+            lst = {
+                "1s": ("étais", "j'___ content.", "I was happy."),
+                "2s": ("étais", "tu ___ fatigué.", "You were tired."),
+                "3s": ("était", "il/elle ___ à l'école.", "He/She was at school."),
+                "1p": ("étions", "nous ___ en vacances.", "We were on vacation."),
+                "2p": ("étiez", "vous ___ en retard.", "You all were late."),
+                "3p": ("étaient", "ils/elles ___ amis.", "They were friends.")
             }
 
 
