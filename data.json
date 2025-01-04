@@ -390,5 +390,61 @@
             "2p": ["étiez", "vous ___ en retard.", "You all were late."],
             "3p": ["étaient", "ils/elles ___ amis.", "They were friends."]
         }
-    }
+    },
+    {
+        "title": "Imperfect avoir",
+        "table": {
+            "1st Person": {
+                "Singular": {
+                    "text": "I [j'avais]",
+                    "question": "je",
+                    "answer": "avais",
+                    "audio": ""
+                },
+                "Plural": {
+                    "text": "We [nous avions]",
+                    "question": "nous",
+                    "answer": "avions",
+                    "audio": ""
+                }
+            },
+            "2nd Person": {
+                "Singular": {
+                    "text": "You [tu avais]",
+                    "question": "tu",
+                    "answer": "avais",
+                    "audio": ""
+                },
+                "Plural": {
+                    "text": "You [vous aviez]",
+                    "question": "vous",
+                    "answer": "aviez",
+                    "audio": ""
+                }
+            },
+            "3rd Person": {
+                "Singular": {
+                    "text": "He/She [il/elle avait]",
+                    "question": "il/elle",
+                    "answer": "avait",
+                    "audio": ""
+                },
+                "Plural": {
+                    "text": "They [ils/elles avaient]",
+                    "question": "ils/elles",
+                    "answer": "avaient",
+                    "audio": ""
+                }
+            }
+        },
+        "desc": "The French imperfect tense or imparfait is used to describe past actions or states that were ongoing, habitual, or incomplete.",
+        "test": {
+            "1s": ["avais", "j'___ un chien.", "I had a dog."],
+            "2s": ["avais", "tu ___ une voiture.", "You had a car."],
+            "3s": ["avait", "il/elle ___ un livre.", "He/She had a book."],
+            "1p": ["avions", "nous ___ des amis.", "We had friends."],
+            "2p": ["aviez", "vous ___ des devoirs.", "You all had homework."],
+            "3p": ["avaient", "ils/elles ___ des jouets.", "They had toys."]
+        }
+    }    
 ]
