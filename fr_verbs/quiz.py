@@ -1,12 +1,12 @@
 import streamlit as st
 import pandas as pd
-import streamlit.components.v1 as components
-from const import TITLE, SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR, CONDITIONAL_ETRE, CONDITIONAL_AVOIR, PRETERIT_ETRE, PRETERIT_AVOIR
 
-EDITING="editing"
+
+EDITING = "editing"
+
 
 class VerbQuiz:
-    def __init__(self, verbs, menuItem):
+    def __init__(self, verbs):
         self.verbs = verbs
         audio_html = f"""
 <style>
@@ -25,7 +25,7 @@ class VerbQuiz:
                 num = "singular"
                 key = f"{num}_{person}"
                 with st.form(key):
-                    col_a, col_b = st.columns([3,1])
+                    col_a, col_b = st.columns([3, 1])
                     with col_a:
                         singular_answer = st.text_input(
                             f"{person} Singular", key=key+"_input", autocomplete="off")
@@ -37,7 +37,8 @@ class VerbQuiz:
                             if singular_answer.strip().lower() == correct_singular.lower():
                                 st.success("✅ Correct")
                             else:
-                                st.error(f"❌ Incorrect (Correct: {correct_singular})")
+                                st.error(
+                                    f"❌ Incorrect (Correct: {correct_singular})")
                         if forms["Singular"]["audio"]:
                             st.audio(forms["Singular"]["audio"])
 
@@ -45,7 +46,7 @@ class VerbQuiz:
                 num = "plural"
                 key = f"{num}_{person}"
                 with st.form(key):
-                    col_a, col_b = st.columns([3,1])
+                    col_a, col_b = st.columns([3, 1])
                     with col_a:
                         plural_answer = st.text_input(
                             f"{person} Plural", key=key+"_input", autocomplete="off")
@@ -56,7 +57,8 @@ class VerbQuiz:
                         if plural_answer.strip().lower() == correct_plural.lower():
                             st.success("✅ Correct")
                         else:
-                            st.error(f"❌ Incorrect (Correct: {correct_plural})")
+                            st.error(
+                                f"❌ Incorrect (Correct: {correct_plural})")
 
                 # Play audio for plural
                 if forms["Plural"]["audio"]:
@@ -64,9 +66,7 @@ class VerbQuiz:
 
         st.button("Clear", on_click=self.clear_inputs)
 
-
     def clear_inputs(self):
         for person, _ in self.verbs.items():
             st.session_state[f"singular_{person}_input"] = ""
             st.session_state[f"plural_{person}_input"] = ""
-

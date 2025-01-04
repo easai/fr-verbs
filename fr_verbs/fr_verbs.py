@@ -1,13 +1,12 @@
 import streamlit as st
 import pandas as pd
+
 from data import VerbData
 from test import VerbTest
 from table import VerbTable
 from quiz import VerbQuiz
-from desc import VerbDesc
-from const import TITLE, SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR, CONDITIONAL_ETRE, CONDITIONAL_AVOIR, PRETERIT_ETRE, PRETERIT_AVOIR, IMPERFECT_ETRE
+from const import TITLE
 
-import streamlit as st
 
 st.set_page_config(
     page_title=TITLE,
@@ -16,34 +15,35 @@ st.set_page_config(
     initial_sidebar_state="auto",
 )
 
-def clear_inputs():
-    for person, _ in verbs.items():
-        st.session_state[f"singular_{person}_input"] = ""
-        st.session_state[f"plural_{person}_input"] = ""
 
+def clear_ending_with_input():
+    for key in list(st.session_state.keys()):
+        if key.endswith("_input"):
+            st.session_state[key] = ""
 
-menuItem = st.sidebar.selectbox(TITLE, (SUBJUNCTIVE_ETRE, SUBJUNCTIVE_AVOIR, CONDITIONAL_ETRE, CONDITIONAL_AVOIR, PRETERIT_ETRE, PRETERIT_AVOIR, IMPERFECT_ETRE), on_change=clear_inputs)
-
-dat = VerbData(menuItem)
-verbs = dat.verbs
+verbData = VerbData()
+menu = verbData.get_menu()
+selected_item = st.sidebar.selectbox(TITLE, menu, on_change=clear_ending_with_input)
+menuIndex = menu.index(selected_item)
+table = verbData.get_table(menuIndex)
 
 # Streamlit app title
 st.title(TITLE)
 st.write("Challenge yourself with our French verbs quizzes and tests, and see how much you know! The app can test various aspects of French verbs.")
-st.subheader(menuItem)
+st.subheader(selected_item)
 
 # Side menu
-VerbDesc(menuItem)
+st.write(verbData.get_desc(menuIndex))
 
 st.write("French uses the following characters: é, à, è, ù, â, ê, î, ô, û, ë, ï, ü, ÿ, ç.")
 
 # Accordion for the pronoun table
-VerbTable(verbs)
+VerbTable(table)
 
 # Pronouns table quiz
-VerbQuiz(verbs, menuItem)
+VerbQuiz(table)
 
 # Fill-in-the-box test
-test = dat.test()
+test = verbData.get_test(menuIndex)
 if test != "":
     swquiz = VerbTest(test)
