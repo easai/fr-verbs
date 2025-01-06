@@ -5,7 +5,7 @@ from data import VerbData
 from test import VerbTest
 from table import VerbTable
 from quiz import VerbQuiz
-from const import TITLE
+from const import TITLE, DESC, ALPHABET
 
 
 st.set_page_config(
@@ -29,13 +29,13 @@ table = verbData.get_table(menuIndex)
 
 # Streamlit app title
 st.title(TITLE)
-st.write("Challenge yourself with our French verbs quizzes and tests, and see how much you know! The app can test various aspects of French verbs.")
+st.write(DESC)
 st.subheader(selected_item)
 
 # Side menu
 st.write(verbData.get_desc(menuIndex))
 
-st.write("French uses the following characters: é, à, è, ù, â, ê, î, ô, û, ë, ï, ü, ÿ, ç.")
+st.write(ALPHABET)
 
 # Accordion for the pronoun table
 VerbTable(table)
